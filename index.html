@@ -1,0 +1,40 @@
+<!Doctype html>
+<html>
+<head>
+    <meta name="keyword" content="Apex, rotation, map, current">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Legends map rotation</title>
+    
+</head>
+<body>
+    <span id="clock" style="color:black; font-size:120px;">clockeded</span>
+    <span id="apm" style = "color:black; font-size:70px;">ampm</span>
+
+    <script>
+        var Target = document.getElementById("clock");
+        let Ampm = document.getElementById("apm");
+        function clock(){
+            let time = new Date();
+
+            let month = time.getMonth();
+            let hours = time.getHours();
+            let minutes = time.getMinutes();
+            let seconds = time.getSeconds();
+            let AmPm = "AM";
+            if(hours > 12){
+                AmPm = "PM";
+                hours %= 12;
+            }
+            hours = hours < 10 ? `0${hours}` : hours;
+            minutes = minutes <10 ? `0${minutes}` : minutes;
+            seconds = seconds < 10 ?`0${seconds}` : seconds;
+            
+            Target.innerText = `${hours}:${minutes}:${seconds}`;
+            Ampm.innerText = `${AmPm}`;
+        }
+
+        clock();
+        setInterval(clock, 1000);
+    </script>
+</body>
+</html>
