@@ -7,12 +7,17 @@
     
 </head>
 <body>
-    <span id="clock" style="color:black; font-size:120px;">clockeded</span>
-    <span id="apm" style = "color:black; font-size:70px;">ampm</span>
+    <span style="font-size:40px; font-family:Verdana, Geneva, Tahoma, sans-serif"><strong>[ System time ]</strong></span><br>
+    <span id="clock" style="color:black; font-size:100px;">clock</span>
+    <span id="apm" style = "color:black; font-size:50px;">ampm</span><br><br>
+    <span style="font-size:20px; font-family: Verdana, Geneva, Tahoma, sans-serif;"><strong>[ UTC/GMT time ]</strong></span>
+    <div id="utc" style = "font-size:30px;"></div>
 
     <script>
-        var Target = document.getElementById("clock");
+        let Target = document.getElementById("clock");
         let Ampm = document.getElementById("apm");
+        let Utctime = document.getElementById("utc");
+
         function clock(){
             let time = new Date();
 
@@ -31,10 +36,12 @@
             
             Target.innerText = `${hours}:${minutes}:${seconds}`;
             Ampm.innerText = `${AmPm}`;
+            Utctime.innerText = time.toUTCString();
         }
 
         clock();
         setInterval(clock, 1000);
+
     </script>
 </body>
 </html>
